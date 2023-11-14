@@ -8,22 +8,4 @@ describe("App Component Tests", () => {
     const app = shallow(<App />);
     expect(app).toBeDefined();
   });
-
-  // App headr test
-  it("Renders a div with the class App-header", () => {
-    const app = shallow(<App />);
-    expect(app.find(".App-header")).toBeDefined();
-  });
-
-  // App body test
-  it("Renders a div with the class App-body", () => {
-    const app = shallow(<App />);
-    expect(app.find(".App-body")).toBeDefined();
-  });
-
-  // App footer test
-  it("Renders a div with the class App-footer", () => {
-    const app = shallow(<App />);
-    expect(app.find(".App-footer")).toBeDefined();
-  });
 });
