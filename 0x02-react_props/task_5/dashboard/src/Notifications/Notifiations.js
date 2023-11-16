@@ -4,7 +4,7 @@ import closeIcon from "../assets/close-icon.png";
 import { getLatestNotification } from "../utils/utils";
 import NotificationItem from "../NotificationItem";
 
-const Notifications = ({ displayDrawer = true }) => {
+const Notifications = ({ displayDrawer = true, listNotifications = [] }) => {
   return (
     <>
       {displayDrawer ? (
@@ -28,9 +28,16 @@ const Notifications = ({ displayDrawer = true }) => {
           </button>
           <p>Here is the list of notifications</p>
           <ul>
-            <NotificationItem type="default" value="New course available" />
-            <NotificationItem type="default" value="New resume available" />
-            <NotificationItem type="urgent" html={getLatestNotification()} />
+            {listNotifications.length > 0
+              ? listNotifications.map((notificationItem) => (
+                  <NotificationItem
+                    key={notificationItem.id}
+                    type={notificationItem.type}
+                    value={notificationItem.value}
+                    html={notificationItem.html}
+                  />
+                ))
+              : "No new notification for now"}
           </ul>
         </div>
       ) : (

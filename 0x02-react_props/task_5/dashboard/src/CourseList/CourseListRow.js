@@ -1,26 +1,31 @@
 import React from "react";
 import "./CourseList.css";
-function CourseListRow ({isHeader = false, textFirst, textSecondCell = null,}) {
-    return (
-        <>
-        <tr>
-          {isHeader ? (
-            textSecondCell == null ? (
-              <th colSpan={2}>{textFirstCell}</th>
-            ) : (
-              <>
-                <th>{textFirstCell}</th>
-                <th>{textSecondCell}</th>
-              </>
-            )
+function CourseListRow({
+  isHeader = false,
+  textFirstCell,
+  textSecondCell = null,
+}) {
+  return (
+    <>
+      <tr>
+        {isHeader ? (
+          textSecondCell == null ? (
+            <th colSpan={2}>{textFirstCell}</th>
           ) : (
             <>
-              <td>{textFirstCell}</td>
-              <td>{textSecondCell}</td>
+              <th>{textFirstCell}</th>
+              <th>{textSecondCell}</th>
             </>
-          )}
-        </tr>
-      </>
-    );
-};
+          )
+        ) : (
+          <>
+            <td>{textFirstCell}</td>
+            <td>{textSecondCell}</td>
+          </>
+        )}
+      </tr>
+    </>
+  );
+}
+
 export default CourseListRow;
